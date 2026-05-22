@@ -1,0 +1,89 @@
+{
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 22,
+    "margin-top": 1,
+    "margin-bottom": 1,
+    "margin-left": 2,
+    "margin-right": 2,
+    "spacing": 4, 
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock#date"],
+    "modules-right": ["network", "temperature", "pulseaudio", "battery", "clock#time"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name} {windows}",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<firefox>": "",
+            "class<kitty>": "",
+            "class<foot>": "",
+            "class<alacritty>": "",
+            "class<code-oss>": "",
+            "class<vscode>": "",
+            "class<discord>": ""
+        }
+    },
+
+    "temperature": {
+        "thermal-zone": 0, // Validates standard CPU zone tracking
+        "critical-threshold": 80, // High temperature marker
+        "format-critical": " {temperatureC}°C", // Icon switches to hot thermometer
+        "format": " {temperatureC}°C", // Normal operational state icon
+        "interval": 2
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "kitty --class floating_mixer -e alsamixer" // Opens a GUI control panel if you click it
+    },
+
+    "clock#date": {
+        "format": " {:%a, %b %d 20%y}" // Example: Fri, May 22
+    },
+    "clock#time": {
+	"interval": 1,
+        "format": "  {:%H:%M %p} "
+    },
+   
+    "battery": {
+        "states": {
+	    "full": 100,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%", // Fallback text formatting
+        // Modern v3 Charging Icon (Battery container with explicit thunder bolt)
+        "format-charging": "󰂄 {capacity}%", 
+        "format-plugged": "󱘖 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    
+   "network": {
+        //"interface": "enp*", 
+        "interval": 2, // Forces the bar to refresh speed counters every 2 seconds
+    
+        // WiFi: Shows SSID, download speed (down arrow), and upload speed (up arrow)
+        "format-wifi": "  {essid:.3}...  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    
+        // Ethernet: Smooth card icon, download speed, and upload speed
+        "format-ethernet": "󰈀   {bandwidthDownBytes}  {bandwidthUpBytes}", 
+    
+        "format-disconnected": "󰤮  Disconnected",
+    
+        // Keep your IP info tucked safely inside the hover tooltip instead
+        "tooltip-format": "󰈀  {ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}",
+    
+        // Keep your clean floating nmtui click engine
+        "on-click": "kitty --class floating_mixer -e nmtui"
+  }
+
+}

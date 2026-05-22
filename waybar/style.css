@@ -1,0 +1,90 @@
+* {
+    border: none;
+    border-radius: 5px;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 5 Free", sans-serif;
+    font-size: 12px; 
+    min-height: 0;
+}
+
+window#waybar {
+    /*background: #1C1D21;*/
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+}
+
+/* window#waybar { */
+    /* Slightly lowered opacity steps so the background blur shines through beautifully */
+/*    background: linear-gradient(
+        to top,
+        rgba(0, 12, 15, 0.85) 0%,
+        rgba(0, 12, 15, 0.78) 15%,
+        rgba(0, 12, 15, 0.68) 30%,
+        rgba(0, 12, 15, 0.55) 45%,
+        rgba(0, 12, 15, 0.42) 60%,
+        rgba(0, 12, 15, 0.32) 75%,
+        rgba(0, 12, 15, 0.25) 90%,
+        rgba(0, 12, 15, 0.20) 100%
+    );
+    color: #ffffff;
+} */
+
+#workspaces button {
+    padding: 0 6px;
+    color: #888888;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #52bf8d; 
+    font-weight: bold;
+}
+
+#clock.date {
+    color: #ebcb8b; /* Your warm yellow color */
+    padding: 0 4px;
+    margin-left: 5px;
+}
+
+/* Target the right-side time clock specifically */
+#clock.time {
+    color: #b4befe; /* Clean light gray */
+    padding: 0 4px; 
+}
+
+#network, #temperature, #battery {
+    padding: 0 4px;
+    color: #b4befe;
+    margin-left: 10px; 
+}
+
+/* Green light celebration when it hits full capacity */
+#battery.full {
+    color: #a6e3a1; /* Full charge emerald green */
+    font-weight: bold;
+}
+
+/* Keeps charging blue or teal while it fills up */
+#battery.charging {
+    color: #89b4fa; /* Charging blue */
+}
+
+/* Low capacity warnings override everything else */
+#battery.warning {
+    color: #f9e2af; /* Warning yellow */
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8; /* Low battery urgent red */
+}
+
+#temperature.critical {
+    color: #f38ba8; /* Hot alert red/pink */
+    font-weight: bold;
+    animation: blink 1s steps(5) infinite; /* Optional: Makes the text pulse */
+}
+
+#pulseaudio {
+    padding: 0 4px;
+    color: #b4befe; /* Soft lavender tint */
+    margin-left: 10px;
+}
