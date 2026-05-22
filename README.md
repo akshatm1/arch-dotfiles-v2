@@ -1,5 +1,12 @@
 # Dotfiles for Arch Linux(Hyprland)
 
+## Gallery
+![Workspace 1](assets/screenshot1.png)
+![Workspace 2](assets/screenshot2.png)
+![Workspace 3](assets/screenshot3.png)
+![Workspace 4](assets/screenshot4.png)
+
+
 ## Required packages
 - Hyprland (duh)
 - Hyprpaper (For Wallpaper)
